@@ -1,0 +1,138 @@
+$tablet: 768px
+$mobile: 500px
+$desktop: 1024px
+
+$yellow: #FFF05A
+$gold: #FFD25A
+$orange: #FFAA5A
+$peach: #FF785A
+$brown: #191919
+$white: white
+
+$slow: 0.3s
+$snail: 1s
+$fast: 0.1s
+
+.Track
+  width: calc(25% - 20px) // account for padding
+  height: 100px
+  padding: 10px
+  border-radius: 2px
+  text-align: left
+  transition: all $fast
+  -webkit-transition: all $fast
+  -moz-transition: all $fast
+
+.Artist
+  font-style: italic
+
+.Tracks
+  width: 80%
+  margin: 100px 10% 100px 10%
+  display: flex
+  flex-wrap: wrap
+
+// varying track widths for varying devices
+@media screen and (max-width: $tablet)
+  .Track
+    width: calc(50% - 20px) // account for padding
+
+@media screen and (max-width: $mobile)
+  .Track
+    width: calc(100% - 20px) // account for padding
+    align-items: flex-start
+    height: auto
+  .Tracks
+    width: 100%
+    margin: 0 0 100px 0
+
+body
+  margin: 0
+  font-family: sans-serif
+  background-color: $orange
+  color: $brown
+  font-weight: lighter
+  font-family: Helvetica
+  font-size: 16px
+
+.Controls
+  position: fixed;
+  bottom: 0;
+  width: 100%
+  height: 100px
+  background-color: $peach
+  display: flex
+  justify-content: flex-start
+  align-items: center
+
+  .Info
+    margin-left: 20px
+
+  i
+    margin-left: 20px
+    font-size: 40px
+    outline: none
+    transition: all $slow
+    color: $brown
+
+  img
+    margin-left: auto
+    margin-right: 10px
+    height: 80px
+    width: 80px
+
+  .Slider
+    margin-left: auto
+    margin-right: 20px
+    width: 10%
+    min-width: 80px
+    display: flex
+    justify-content: flex-end
+    align-items: center
+
+    input[type=range]
+      -webkit-appearance: none
+      width: 100%
+      height: 3px
+      background: $brown
+
+    input[type=range]::-webkit-slider-thumb
+      -webkit-appearance: none
+      background: $brown
+      height: 20px
+      width: 10px
+      cursor: pointer;
+      transition: all $slow
+
+    input[type=range]:focus
+      outline: none
+
+    input[type=range]::-ms-track
+      width: 100%;
+      cursor: pointer;
+
+// hover effects for devices that support them
+@media (hover: hover)
+  .Track
+    &:hover
+      cursor: pointer
+      background-color: $gold
+      transform: scale(1.05)
+      -webkit-transform: scale(1.05)
+      -moz-transform: scale(1.05)
+  .Controls
+    i
+      &:hover
+        color: $gold
+        cursor: pointer
+        transform: scale(1.2)
+        -webkit-transform: scale(1.2)
+        -moz-transform: scale(1.2)
+  .Slider
+    input[type=range]::-webkit-slider-thumb
+      &:hover
+        background: $gold
+        transform: scale(1.2)
+        -webkit-transform: scale(1.2)
+        -moz-transform: scale(1.2)
+        outline: none
