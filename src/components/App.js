@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import List from './List'
-import { BASE_URL } from '../utils/Constants'
 
 class App extends Component {
   constructor() {
@@ -11,7 +10,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const URL = BASE_URL + '/tracks'
+    const URL = '/tracks'
     const options = { method: 'GET' }
 
     fetch(URL, options)

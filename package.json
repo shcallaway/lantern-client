@@ -2,6 +2,7 @@
   "name": "lantern-client",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://lantern-server-production.herokuapp.com",
   "dependencies": {
     "howler": "^2.0.3",
     "react": "^15.5.4",
