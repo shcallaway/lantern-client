@@ -3,7 +3,6 @@ import Track from './Track'
 import Slider from './Slider'
 // import WebAudio from '../utils/WebAudio'
 import AudioPlayer from '../utils/AudioPlayer'
-import { BASE_URL } from '../utils/Constants'
 
 const PlayerStatus = {
   LOADING: 'LOADING',
@@ -84,7 +83,7 @@ class List extends Component {
       inQueue = id
     })
 
-    const URL = BASE_URL + `/tracks/${id}/stream`
+    const URL = `/tracks/${id}/stream`
     fetch(URL, { method: 'GET' })
     .then(response => response.json())
     .then(data => {
